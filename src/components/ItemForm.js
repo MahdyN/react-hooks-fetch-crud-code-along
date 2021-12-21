@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 
-function ItemForm() {
-  const [name, setName] = useState("");
-  const [category, setCategory] = useState("Produce");
+function ItemForm({newItem, handleFormChange, handleFormSubmit}) {
+  // const [name, setName] = useState("");
+  // const [category, setCategory] = useState("Produce");
 
   return (
-    <form className="NewItem">
+    <form className="NewItem" onSubmit = {handleFormSubmit} >
       <label>
         Name:
         <input
           type="text"
           name="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value = {newItem.name}
+          onChange = {handleFormChange}
+          // value={name}
+          // onChange={(e) => setName(e.target.value)}
         />
       </label>
 
@@ -20,8 +22,10 @@ function ItemForm() {
         Category:
         <select
           name="category"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          value = {newItem.category}
+          onChange = {handleFormChange}
+          // value={category}
+          // onChange={(e) => setCategory(e.target.value)}
         >
           <option value="Produce">Produce</option>
           <option value="Dairy">Dairy</option>
